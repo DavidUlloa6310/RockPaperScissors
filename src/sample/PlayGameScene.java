@@ -56,7 +56,11 @@ public class PlayGameScene extends GridPane {
 
         Button playAgain = new Button("Play Again?");
         playAgain.setOnAction(e -> {
-            SceneLibrary.switchToResponse();
+            if (isComputer) {
+                SceneLibrary.switchToResponse();
+            } else {
+                SceneLibrary.switchToFirstPlayerSelectScene();
+            }
         });
 
         middleText.getChildren().add(playAgain);

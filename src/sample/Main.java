@@ -14,7 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setResizable(false);
         SceneLibrary.setThePrimaryStage(primaryStage);
-        SceneLibrary.switchToResponse();
+        SceneLibrary.switchToIntro();
         primaryStage.show();
     }
 
