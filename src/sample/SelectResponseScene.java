@@ -1,15 +1,11 @@
 package sample;
 
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public class SelectResponseScene extends GridPane {
 
@@ -39,22 +35,21 @@ public class SelectResponseScene extends GridPane {
         EventHandler<MouseEvent> chooseRock = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("SWITCHED");
-                SceneLibrary.switchToPlay(new Response(ResponseType.ROCK));
+                SceneLibrary.switchToComputerPlay(ResponseType.ROCK);
             }
         };
 
         EventHandler<MouseEvent> choosePaper = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneLibrary.switchToPlay(new Response(ResponseType.PAPER));
+                SceneLibrary.switchToComputerPlay(ResponseType.PAPER);
             }
         };
 
         EventHandler<MouseEvent> chooseScissors = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneLibrary.switchToPlay(new Response(ResponseType.SCISSOR));
+                SceneLibrary.switchToComputerPlay(ResponseType.SCISSOR);
             }
         };
 

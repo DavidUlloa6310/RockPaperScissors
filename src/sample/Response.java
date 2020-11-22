@@ -6,6 +6,11 @@ import javafx.scene.image.ImageView;
 public class Response {
     private ResponseType responseType;
 
+    private int score = 0;
+    private int round = 1;
+    private int streak = 0;
+    private int wonGames = 0;
+
     private ImageView imageView;
     private Image responseImage;
     private Image tiltedImage;
