@@ -34,4 +34,20 @@ public class Response {
     public Image getResponseImage() {
         return responseImage;
     }
+
+    public ResponseType getResponseType() {
+        return responseType;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public Image getTiltedImage() {
+        return tiltedImage;
+    }
+
+    public Image getStillImage() {
+        return stillImage;
+    }
 }
