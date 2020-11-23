@@ -1,16 +1,18 @@
 package sample;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class SelectResponseScene extends GridPane {
 
     public SelectResponseScene() {
-        Image rockPaperScissors = new Image("images/RockPaperScissors.png");
+        Image rockPaperScissors = new Image("images/CureAntiVaxCovid.png");
 
         ImageView titleImageView = new ImageView();
         titleImageView.setImage(rockPaperScissors);
@@ -18,9 +20,8 @@ public class SelectResponseScene extends GridPane {
 
         HBox hBox = new HBox();
 
-        ImageView rockImageView = new ImageView();
-        rockImageView.setImage(new Response(ResponseType.ROCK).getResponseImage());
-        hBox.getChildren().add(rockImageView);
+        setAlignment(Pos.CENTER);
+        hBox.setAlignment(Pos.CENTER);
 
         ImageView paperImageView = new ImageView();
         paperImageView.setImage(new Response(ResponseType.PAPER).getResponseImage());
@@ -29,6 +30,10 @@ public class SelectResponseScene extends GridPane {
         ImageView scissorImageView = new ImageView();
         scissorImageView.setImage(new Response(ResponseType.SCISSOR).getResponseImage());
         hBox.getChildren().add(scissorImageView);
+
+        ImageView rockImageView = new ImageView();
+        rockImageView.setImage(new Response(ResponseType.ROCK).getResponseImage());
+        hBox.getChildren().add(rockImageView);
 
         add(hBox, 0,1);
 
@@ -56,6 +61,8 @@ public class SelectResponseScene extends GridPane {
         rockImageView.addEventFilter(MouseEvent.MOUSE_CLICKED, chooseRock);
         paperImageView.addEventFilter(MouseEvent.MOUSE_CLICKED, choosePaper);
         scissorImageView.addEventFilter(MouseEvent.MOUSE_CLICKED, chooseScissors);
+
+        setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
 
     }

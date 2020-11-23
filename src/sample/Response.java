@@ -31,8 +31,8 @@ public class Response {
                 break;
         }
 
-        stillImage = new Image("images/rock.png");
-        tiltedImage = new Image("images/tilted.png");
+        stillImage = new Image("images/fist.png");
+        tiltedImage = new Image("images/tiltedFist.png");
 
     }
 

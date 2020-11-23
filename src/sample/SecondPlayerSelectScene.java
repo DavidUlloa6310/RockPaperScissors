@@ -1,15 +1,19 @@
 package sample;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class SecondPlayerSelectScene extends VBox {
     public SecondPlayerSelectScene(Player secondPlayer) {
+
+        setAlignment(Pos.CENTER);
+
         Image rockPaperScissors = new Image("images/CureAntiVaxCovid.png");
 
         ImageView playerTwoImage = new ImageView();
@@ -22,9 +26,7 @@ public class SecondPlayerSelectScene extends VBox {
 
         HBox hBox = new HBox();
 
-        ImageView rockImageView = new ImageView();
-        rockImageView.setImage(new Response(ResponseType.ROCK).getResponseImage());
-        hBox.getChildren().add(rockImageView);
+        hBox.setAlignment(Pos.CENTER);
 
         ImageView paperImageView = new ImageView();
         paperImageView.setImage(new Response(ResponseType.PAPER).getResponseImage());
@@ -33,6 +35,10 @@ public class SecondPlayerSelectScene extends VBox {
         ImageView scissorImageView = new ImageView();
         scissorImageView.setImage(new Response(ResponseType.SCISSOR).getResponseImage());
         hBox.getChildren().add(scissorImageView);
+
+        ImageView rockImageView = new ImageView();
+        rockImageView.setImage(new Response(ResponseType.ROCK).getResponseImage());
+        hBox.getChildren().add(rockImageView);
 
         getChildren().add(hBox);
 
@@ -63,6 +69,8 @@ public class SecondPlayerSelectScene extends VBox {
         rockImageView.addEventFilter(MouseEvent.MOUSE_CLICKED, chooseRock);
         paperImageView.addEventFilter(MouseEvent.MOUSE_CLICKED, choosePaper);
         scissorImageView.addEventFilter(MouseEvent.MOUSE_CLICKED, chooseScissors);
+
+        setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY, Insets.EMPTY)));
 
 
     }

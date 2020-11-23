@@ -1,12 +1,13 @@
 package sample;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -43,15 +44,20 @@ public class PlayGameScene extends GridPane {
         computerHand.setImage(secondPlayer.getResponse().getStillImage());
         add(playerHand,0,0);
 
+        ImageView playerOne = new ImageView();
+        middleText.getChildren().add(playerOne);
+
         winConditionText.setImage(new Image("images/ready.png"));
         middleText.getChildren().add(winConditionText);
 
         Text roundText = new Text("Round: " + game.getRound());
-        roundText.setFont(Font.font("Bauhaus",100));
+        roundText.setFont(Font.font("Bauhaus 93",100));
+        roundText.setFill(Color.WHITE);
         middleText.getChildren().add(roundText);
 
         Text scoreText = new Text(firstPlayer.getScore() + " - " + secondPlayer.getScore());
-        scoreText.setFont(Font.font("Bauhaus", 100));
+        scoreText.setFont(Font.font("Bauhaus 93", 50));
+        scoreText.setFill(Color.WHITE);
         middleText.getChildren().add(scoreText);
 
         Button playAgain = new Button("Play Again?");
@@ -78,6 +84,7 @@ public class PlayGameScene extends GridPane {
                     lastUpdate = now;
 
                     if (counter > 8) {
+                        playerOne.setImage(new Image("images/playerOne.png"));
                         if (isWin(firstPlayer.getResponse().getResponseType(), secondPlayer.getResponse().getResponseType()) == EndCondition.DRAW) {
                             winConditionText.setImage(new Image("images/tie.png"));
                         } else if (isWin(firstPlayer.getResponse().getResponseType(), secondPlayer.getResponse().getResponseType()) == EndCondition.WIN) {
@@ -90,7 +97,7 @@ public class PlayGameScene extends GridPane {
                             game.incrementRound();
                         }
 
-                        if (game.getRound() > 3 && firstPlayer.getScore() == 2) {
+                        if (firstPlayer.getScore() == 2) {
                             game.resetRound();
 
                             firstPlayer.incrementStreak();
@@ -99,7 +106,7 @@ public class PlayGameScene extends GridPane {
 
                             secondPlayer.resetScore();
                             secondPlayer.resetStreak();
-                        } else if (game.getRound() > 3 && firstPlayer.getScore() != 2) {
+                        } else if (secondPlayer.getScore() == 2) {
                             game.resetRound();
 
                             firstPlayer.resetStreak();
@@ -150,6 +157,7 @@ public class PlayGameScene extends GridPane {
         };
 
         animationTimer.start();
+        setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
     }
 

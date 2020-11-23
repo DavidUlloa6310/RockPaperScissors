@@ -1,12 +1,12 @@
 package sample;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class IntroScene extends VBox {
     private HBox hBox = new HBox();
@@ -32,8 +32,11 @@ public class IntroScene extends VBox {
             SceneLibrary.switchToFirstPlayerSelectScene();
         });
 
+        hBox.setSpacing(25);
         hBox.getChildren().addAll(playAI, playPerson);
         getChildren().add(hBox);
+
+        setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY, Insets.EMPTY)));
 
     }
 

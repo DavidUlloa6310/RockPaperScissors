@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public abstract class SceneLibrary {
@@ -13,10 +14,10 @@ public abstract class SceneLibrary {
 
     private static Stage thePrimaryStage;
 
-    private static Scene selectResponseScene = new Scene(new SelectResponseScene(), 1200, 500);
+    private static Scene selectResponseScene = new Scene(new SelectResponseScene(), 1200, 600, Color.BLACK);
 
-    private static Scene firstPlayerSelectScene = new Scene(new FirstPlayerSelectScene(playerOne), 1200, 500);
-    private static Scene secondPlayerSelectScene = new Scene(new SecondPlayerSelectScene(playerTwo),1200,500);
+    private static Scene firstPlayerSelectScene = new Scene(new FirstPlayerSelectScene(playerOne), 1300, 600, Color.BLACK);
+    private static Scene secondPlayerSelectScene = new Scene(new SecondPlayerSelectScene(playerTwo),1300,600, Color.BLACK);
 
     private static Scene introScene = new Scene(new IntroScene(), 1200, 500);
 
@@ -41,12 +42,12 @@ public abstract class SceneLibrary {
     }
 
     public static void switchToPlayerPlay() {
-        thePrimaryStage.setScene(new Scene(new PlayGameScene(playerOne, playerTwo, game, false), 1200, 500));
+        thePrimaryStage.setScene(new Scene(new PlayGameScene(playerOne, playerTwo, game, false), 1200, 500, Color.BLACK));
     }
 
     public static void switchToComputerPlay(ResponseType responseType) {
         playerOne.setResponseType(responseType);
-        thePrimaryStage.setScene(new Scene(new PlayGameScene(playerOne, computer, game, true), 1200, 500));
+        thePrimaryStage.setScene(new Scene(new PlayGameScene(playerOne, computer, game, true), 1200, 500, Color.BLACK));
     }
 
 }
