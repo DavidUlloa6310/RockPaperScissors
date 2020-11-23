@@ -6,15 +6,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-public class FirstPlayerSelectScene extends GridPane {
+public class FirstPlayerSelectScene extends VBox {
 
     public FirstPlayerSelectScene(Player firstPlayer) {
-        Image rockPaperScissors = new Image("images/RockPaperScissors.png");
+        Image rockPaperScissors = new Image("images/CureAntiVaxCovid.png");
 
         ImageView titleImageView = new ImageView();
         titleImageView.setImage(rockPaperScissors);
-        add(titleImageView,0,0);
+
+        ImageView playerOneImage = new ImageView();
+        playerOneImage.setImage(new Image("images/playerOne.png"));
+        getChildren().add(playerOneImage);
+        getChildren().add(titleImageView);
 
         HBox hBox = new HBox();
 
@@ -30,7 +35,7 @@ public class FirstPlayerSelectScene extends GridPane {
         scissorImageView.setImage(new Response(ResponseType.SCISSOR).getResponseImage());
         hBox.getChildren().add(scissorImageView);
 
-        add(hBox, 0,1);
+        getChildren().add(hBox);
 
         EventHandler<MouseEvent> chooseRock = new EventHandler<MouseEvent>() {
             @Override
