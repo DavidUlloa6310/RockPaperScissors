@@ -11,8 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setResizable(true);
+        primaryStage.setTitle("COVID: Rock, Paper, Scissor");
+        primaryStage.setResizable(false);
         SceneLibrary.setThePrimaryStage(primaryStage);
         SceneLibrary.switchToIntro();
         primaryStage.show();

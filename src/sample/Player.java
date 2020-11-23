@@ -7,10 +7,18 @@ public class Player {
     private int highestStreak = 0;
     private int wonGames = 0;
 
+    private int playedRock = 0;
+    private int playedPaper = 0;
+    private int playedScissors = 0;
+
     public Response getResponse() { return response; }
     public int getScore() { return score; }
     public int getStreak() { return streak; }
     public int getHighestStreak() { return highestStreak; }
+    public int getWonGames() { return wonGames; }
+    public int getPlayedRock() { return playedRock; }
+    public int getPlayedPaper() { return playedPaper; }
+    public int getPlayedScissors() { return playedScissors; }
 
     public Player() {
 
@@ -18,6 +26,7 @@ public class Player {
 
     public void setResponseType(ResponseType responseType) {
         this.response = new Response(responseType);
+        incrementResponseType(responseType);
     }
 
     public void incrementScore() {
@@ -41,6 +50,16 @@ public class Player {
 
     public void resetScore() {
         this.score = 0;
+    }
+
+    private void incrementResponseType(ResponseType responseType) {
+        if (responseType == ResponseType.ROCK) {
+            this.playedRock++;
+        } else if (responseType == ResponseType.PAPER) {
+            this.playedPaper++;
+        } else {
+            this.playedScissors++;
+        }
     }
 
 }

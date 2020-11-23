@@ -60,7 +60,15 @@ public class PlayGameScene extends GridPane {
         scoreText.setFill(Color.WHITE);
         middleText.getChildren().add(scoreText);
 
+        HBox buttons = new HBox();
+        buttons.setAlignment(Pos.CENTER);
+        buttons.setSpacing(25);
+
+        middleText.getChildren().add(buttons);
+
         Button playAgain = new Button("Play Again?");
+        playAgain.setStyle("-fx-background-color: #44e9ff;");
+
         playAgain.setOnAction(e -> {
             if (isComputer) {
                 SceneLibrary.switchToResponse();
@@ -69,7 +77,17 @@ public class PlayGameScene extends GridPane {
             }
         });
 
-        middleText.getChildren().add(playAgain);
+        Button goMenu = new Button("Go To Menu");
+        goMenu.setStyle("-fx-background-color: #44e9ff;");
+
+        goMenu.setOnAction(e -> {
+            SceneLibrary.switchToIntro();
+            game.resetRound();
+            firstPlayer.resetScore();
+            secondPlayer.resetScore();
+        });
+
+        buttons.getChildren().addAll(playAgain, goMenu);
 
         add(middleText, 1, 0);
         add(computerHand,2,0);
@@ -96,6 +114,8 @@ public class PlayGameScene extends GridPane {
                             secondPlayer.incrementScore();
                             game.incrementRound();
                         }
+
+                        scoreText.setText(firstPlayer.getScore() + " - " + secondPlayer.getScore());
 
                         if (firstPlayer.getScore() == 2) {
                             game.resetRound();

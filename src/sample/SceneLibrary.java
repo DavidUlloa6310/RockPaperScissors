@@ -29,6 +29,10 @@ public abstract class SceneLibrary {
         thePrimaryStage.setScene(introScene);
     }
 
+    public static void switchToHighScore() {
+        thePrimaryStage.setScene(new Scene(new HighScoresScene(playerOne, playerTwo, computer), 1300, 600));
+    }
+
     public static void switchToResponse() {
         thePrimaryStage.setScene(selectResponseScene);
     }

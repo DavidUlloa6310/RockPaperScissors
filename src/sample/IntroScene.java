@@ -2,6 +2,7 @@ package sample;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,8 +22,13 @@ public class IntroScene extends VBox {
         getChildren().add(titleImage);
 
         Button playAI = new Button("Play Computer");
+        playAI.setStyle("-fx-background-color: #44e9ff;");
+
         Button playPerson = new Button("Play IRL");
-        //Button scoreboard = new Button("Scoreboard");
+        playPerson.setStyle("-fx-background-color: #44e9ff;");
+
+        Button scoreboard = new Button("Scoreboard");
+        scoreboard.setStyle("-fx-background-color: #44e9ff;");
 
         playAI.setOnAction(e -> {
             SceneLibrary.switchToResponse();
@@ -32,8 +38,12 @@ public class IntroScene extends VBox {
             SceneLibrary.switchToFirstPlayerSelectScene();
         });
 
+        scoreboard.setOnAction(e -> {
+            SceneLibrary.switchToHighScore();
+        });
+
         hBox.setSpacing(25);
-        hBox.getChildren().addAll(playAI, playPerson);
+        hBox.getChildren().addAll(playAI, playPerson, scoreboard);
         getChildren().add(hBox);
 
         setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY, Insets.EMPTY)));
