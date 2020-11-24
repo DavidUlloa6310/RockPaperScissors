@@ -8,15 +8,23 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
-public class SelectResponseScene extends GridPane {
+public class SelectResponseScene extends VBox {
 
     public SelectResponseScene() {
         Image rockPaperScissors = new Image("images/CureAntiVaxCovid.png");
 
         ImageView titleImageView = new ImageView();
         titleImageView.setImage(rockPaperScissors);
-        add(titleImageView,0,0);
+        getChildren().add(titleImageView);
+
+        Text instructions = new Text("Select an option below. ");
+        instructions.setFont(Font.font("Bauhaus 93",50));
+        instructions.setFill(Color.WHITE);
+
+        getChildren().add(instructions);
 
         HBox hBox = new HBox();
 
@@ -35,7 +43,7 @@ public class SelectResponseScene extends GridPane {
         rockImageView.setImage(new Response(ResponseType.ROCK).getResponseImage());
         hBox.getChildren().add(rockImageView);
 
-        add(hBox, 0,1);
+        getChildren().add(hBox);
 
         EventHandler<MouseEvent> chooseRock = new EventHandler<MouseEvent>() {
             @Override

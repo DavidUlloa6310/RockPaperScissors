@@ -17,7 +17,10 @@ public class PlayGameScene extends GridPane {
 
     private int counter = 0;
 
+    private VBox firstPlayerVBox = new VBox();
     private ImageView playerHand = new ImageView();
+
+    private VBox secondPlayerVBox = new VBox();
     private ImageView computerHand = new ImageView();
 
     private VBox middleText = new VBox();
@@ -25,6 +28,7 @@ public class PlayGameScene extends GridPane {
 
     public PlayGameScene(Player firstPlayer, Player secondPlayer, Game game, boolean isComputer) {
 
+        setAlignment(Pos.CENTER);
         middleText.setAlignment(Pos.CENTER);
 
         if (isComputer) {
@@ -40,12 +44,10 @@ public class PlayGameScene extends GridPane {
             }
         }
 
-        playerHand.setImage(firstPlayer.getResponse().getStillImage());
-        computerHand.setImage(secondPlayer.getResponse().getStillImage());
-        add(playerHand,0,0);
+        firstPlayerVBox.setAlignment(Pos.CENTER);
+        secondPlayerVBox.setAlignment(Pos.CENTER);
 
-        ImageView playerOne = new ImageView();
-        middleText.getChildren().add(playerOne);
+        setUpPlayerVbox(firstPlayer, secondPlayer, isComputer);
 
         winConditionText.setImage(new Image("images/ready.png"));
         middleText.getChildren().add(winConditionText);
@@ -89,8 +91,9 @@ public class PlayGameScene extends GridPane {
 
         buttons.getChildren().addAll(playAgain, goMenu);
 
+        add(firstPlayerVBox, 0, 0);
         add(middleText, 1, 0);
-        add(computerHand,2,0);
+        add(secondPlayerVBox,2,0);
 
         AnimationTimer animationTimer = new AnimationTimer() {
 
@@ -102,7 +105,6 @@ public class PlayGameScene extends GridPane {
                     lastUpdate = now;
 
                     if (counter > 8) {
-                        playerOne.setImage(new Image("images/playerOne.png"));
                         if (isWin(firstPlayer.getResponse().getResponseType(), secondPlayer.getResponse().getResponseType()) == EndCondition.DRAW) {
                             winConditionText.setImage(new Image("images/tie.png"));
                         } else if (isWin(firstPlayer.getResponse().getResponseType(), secondPlayer.getResponse().getResponseType()) == EndCondition.WIN) {
@@ -178,6 +180,35 @@ public class PlayGameScene extends GridPane {
 
         animationTimer.start();
         setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+
+    }
+
+    public void setUpPlayerVbox(Player firstPlayer, Player secondPlayer, boolean isComputer) {
+
+        Text firstPlayerName = new Text("Player One");
+        firstPlayerName.setFont(Font.font("Bauhaus 93",50));
+        firstPlayerName.setFill(Color.WHITE);
+        playerHand.setImage(firstPlayer.getResponse().getStillImage());
+        Text firstPlayerGamesWon = new Text("Games Won: " + firstPlayer.getWonGames());
+        firstPlayerGamesWon.setFont(Font.font("Bauhaus 93",25));
+        firstPlayerGamesWon.setFill(Color.WHITE);
+        firstPlayerVBox.getChildren().addAll(firstPlayerName, playerHand, firstPlayerGamesWon);
+
+        Text secondPlayerName;
+
+        if (isComputer) {
+            secondPlayerName = new Text("Computer");
+        } else {
+            secondPlayerName = new Text("Player Two");
+        }
+
+        secondPlayerName.setFont(Font.font("Bauhaus 93",50));
+        secondPlayerName.setFill(Color.WHITE);
+        computerHand.setImage(secondPlayer.getResponse().getStillImage());
+        Text secondPlayerGamesWon = new Text("Games Won:  " + secondPlayer.getWonGames());
+        secondPlayerGamesWon.setFont(Font.font("Bauhaus 93",25));
+        secondPlayerGamesWon.setFill(Color.WHITE);
+        secondPlayerVBox.getChildren().addAll(secondPlayerName, computerHand, secondPlayerGamesWon);
 
     }
 

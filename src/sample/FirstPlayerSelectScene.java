@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class FirstPlayerSelectScene extends VBox {
 
@@ -24,6 +26,12 @@ public class FirstPlayerSelectScene extends VBox {
         playerOneImage.setImage(new Image("images/playerOne.png"));
         getChildren().add(playerOneImage);
         getChildren().add(titleImageView);
+
+        Text instructions = new Text("Select an option below. ");
+        instructions.setFont(Font.font("Bauhaus 93",50));
+        instructions.setFill(Color.WHITE);
+
+        getChildren().add(instructions);
 
         HBox hBox = new HBox();
 
