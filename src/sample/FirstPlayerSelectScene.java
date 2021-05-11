@@ -12,6 +12,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class FirstPlayerSelectScene extends VBox {
+    /*
+    Scene Where the first player selects their response.
+     */
 
     public FirstPlayerSelectScene(Player firstPlayer) {
 

@@ -12,6 +12,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class SelectResponseScene extends VBox {
+    /*
+    Scene where you select response if against computer.
+     */
 
     public SelectResponseScene() {
         Image rockPaperScissors = new Image("images/CureAntiVaxCovid.png");

@@ -11,6 +11,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class HighScoresScene extends VBox {
+    /*
+    Scene which shows the high scores and stats of the players.
+     */
 
 
     private HBox columns = new HBox();

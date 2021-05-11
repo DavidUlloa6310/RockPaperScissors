@@ -4,6 +4,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Response {
+    /*
+    Represents a response from the player: rock paper or scissor.
+     */
     private ResponseType responseType;
 
     private int score = 0;

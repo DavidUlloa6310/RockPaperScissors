@@ -12,6 +12,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class SecondPlayerSelectScene extends VBox {
+    /*
+    Scene where the second player selects their response.
+     */
     public SecondPlayerSelectScene(Player secondPlayer) {
 
         setAlignment(Pos.CENTER);

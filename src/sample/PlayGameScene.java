@@ -14,6 +14,9 @@ import javafx.scene.text.Text;
 import java.util.Random;
 
 public class PlayGameScene extends GridPane {
+    /*
+    Actually shows the playing of the game.
+     */
 
     private int counter = 0;
 

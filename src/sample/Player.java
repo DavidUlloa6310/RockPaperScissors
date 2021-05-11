@@ -1,6 +1,9 @@
 package sample;
 
 public class Player {
+    /*
+    Holds stats of player
+     */
     private Response response;
     private int score = 0;
     private int streak = 0;
